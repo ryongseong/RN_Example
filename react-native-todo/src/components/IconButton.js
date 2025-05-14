@@ -5,7 +5,8 @@ import styled from "styled-components/native";
 import { images } from "../image";
 
 const Icon = styled.Image`
-  tint-color: ${({ theme }) => theme.text};
+  tint-color: ${({ theme, completed }) =>
+    completed ? theme.done : theme.text};
   width: 30px;
   height: 30px;
   margin: 10px;
@@ -30,6 +31,7 @@ IconButton.propTypes = {
   type: PropTypes.oneOf(Object.values(images)).isRequired,
   onPressOut: PropTypes.func,
   id: PropTypes.string,
+  completed: PropTypes.bool,
 };
 
 export default IconButton;
